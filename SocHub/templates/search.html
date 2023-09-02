@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'assets/css/search.css' %}">
+    <title>User search result</title>
+</head>
+<body>
+    <header>
+        <h1>User search result</h1>
+        <button><a href="/">Home</a></button>
+    </header>
+    <div class="container">
+        <ul class="user-list">
+            {% for users in username_profile_list %}
+            <li class="user">
+                <a href="/profile/{{users.user}}"><img src="{{users.profileimg.url}}"></a>
+                <h2><a href="/profile/{{users.user}}">{{users.user}}</a></h2>
+                <p>{{users.location}}</p>
+                <p>{{users.bio}}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
